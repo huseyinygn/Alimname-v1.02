@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  
+}
+
+html {
+  font-size: 10px;
+}
+
+:root {
+  /* TEMA RENKLERİ */
+  --firstcolor: rgba(221, 186, 122, 0.9); /* TEMA RENGİ */
+  --highcolor: rgb(250, 227, 127); /* VURGU SAĞLAMAK İÇİN */
+  --softbackgroundcolor: rgb(218, 210, 176);
+  --backgroundcolor: rgba(71, 71, 71, 0.4); /* KONTRAST SAĞLAMAK İÇİN */
+  --secondcolor: #ffffff;  /* GENEL ARKAPLAN RENGİ */
+  --pageBackgroundColor: rgb(219, 194, 146, 0.1); /* DAHA KOYU ARKA PLAN RENGİ */
+  --footerBackgroundColor: #555555;
+
+  /* YAZI RENKLERİ */
+   --baslikrengi: #555555;
+   --textcolor: #333333;
+}
+
+html::-webkit-scrollbar {
+  width: 1.1rem;
+  background-color: #f0f0f0;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 0.4rem;
+  background-color: var(--highcolor);
+}
+
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body {
+  background-color: var(--secondcolor);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}

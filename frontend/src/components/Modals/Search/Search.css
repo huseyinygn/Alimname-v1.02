@@ -1,0 +1,92 @@
+.Alimname-yazi::selection,
+.arabtn::selection{
+    background: transparent;
+}
+
+.Search-container{
+    min-height: 95vh;
+    width: 110rem;
+    margin: auto;
+    background-color: var(--pageBackgroundColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 3rem;
+}
+.Alimname-yazi{
+    width: 60rem;
+    margin-bottom: -3rem;
+}
+
+.textinput::selection{
+    background-color: var(--highcolor);
+  }
+.searchbar {
+    display: flex;
+    align-items: center;
+  }
+.textinput {
+    height: 4rem;
+    background-color: var(--secondcolor);
+    border: 0.1rem solid #ddd;
+    border-right: none;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-left: 1rem;
+    outline-color: var(--firstcolor);
+    width: 70rem;
+}
+.arabtn {
+    height: 4rem;
+    width: 6rem;
+    background-color: var(--highcolor);
+    border: 0.1rem solid #ddd;
+    border-left: none;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--textgray);
+  }
+  .Searchs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.search-results{
+    width: 100%;
+    margin-top: 1.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+.sorry-message{
+    width: 76rem;
+    height: 8rem;
+    background-color: var(--secondcolor);
+    border: 0.2rem solid var(--highcolor);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    align-items: center;
+}
+.sorry-message h3{
+    font-size: 1.7rem;
+    font-weight: 400;
+    font-style: italic;
+}
+.Table-search{
+    width: 100rem;
+}

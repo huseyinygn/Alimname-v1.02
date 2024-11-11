@@ -1,0 +1,22 @@
+
+.Mpheader-app {
+  width: 100%;
+  position: absolute;
+  margin-top: 23rem;
+}
+.Mpbackground-app {
+  width: 100%;
+  height: 29.5rem;
+  position: absolute;
+  background-image: url("././photos/Mp-background.png");
+  background-size: cover;
+  background-position: 0% 85%;
+  z-index: 1;
+}
+.Mpbackground-mask-app {
+  width: 100%;
+  height: 29.5rem;
+  background-color: var(--backgroundcolor);
+  position: absolute;
+  z-index: 2;
+}

@@ -1,0 +1,58 @@
+@media  (min-width:769px) and (max-width: 1024px) {
+  .Mpupper-siteyazi-alimname{
+    width: 50rem;
+    position: relative;
+    top: 7rem;
+  }
+} 
+
+@media (min-width:1025px) {
+  .Mpupper-siteyazi-alimname{
+    width: 75rem;
+    position: relative;
+    top: 2rem;
+    right: 1.5rem;
+  }
+} 
+@media (min-width:481px) and (max-width: 768px) {
+  .Mpupper-siteyazi-alimname{
+    width: 45rem;
+    position: relative;
+    top: 7rem;
+  }
+}
+@media (min-width:320px) and (max-width: 480px) {
+  .Mpupper-siteyazi-alimname{
+    width: 30rem;
+    position: relative;
+    top: 9rem;
+  }
+}  
+.Mpupper {
+  width: 100%;
+  height: 23rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.Mpupper-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  z-index: 100;
+}
+.Mpupper-siteyazi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  cursor: default;
+  position: relative;
+  top: 1rem;
+}
+.Mpupper-siteyazi img::selection,
+.Mpupper-siteyazi h1::selection {
+  background-color: transparent;
+}

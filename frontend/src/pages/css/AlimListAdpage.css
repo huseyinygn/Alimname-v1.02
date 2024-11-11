@@ -1,0 +1,54 @@
+.SearchAndTableFlex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.AlimListAdpage-search {
+    position: relative;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .AlimListAdpage-search-input {
+    width: 25rem;
+    height: 4rem;
+    background-color: var(--secondcolor);
+    border: 0.1rem solid #ddd;
+    border-right: none;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-left: 1rem;
+    outline-color: var(--firstcolor);
+    width: 70rem;
+  }
+  .AlimListAdpage-search-arabtn {
+    height: 4rem;
+    width: 6rem;
+    background-color: var(--highcolor);
+    border: 0.1rem solid #ddd;
+    border-right: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--textgray);
+  }
+.Table-AlimListAdpage{
+    width: 120rem;
+}
+.AlimListAdpage-search-resetbtn{
+    height: 4rem;
+    width: 6rem;
+    background-color: var(--firstcolor);
+    border: 0.1rem solid #ddd;
+    border-left: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--textgray);
+}
+.founded-alims{
+    color: var(--textcolor);
+    font-weight: 500;
+}
