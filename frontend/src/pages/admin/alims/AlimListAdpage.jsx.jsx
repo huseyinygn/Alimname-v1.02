@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import { Button, ConfigProvider, Popconfirm, Space, Table, message, Spin } from "antd";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoadingOutlined } from '@ant-design/icons';
-import "../../css/AlimListAdpage.css"
+import "../../css/AlimListAdpage.css";
+
 const AlimList = () => {
   const [dataSource, setDataSource] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const pictureLinks = { 
+    1: "https://r.resimlink.com/R38wQs.png", 
+    2: "https://r.resimlink.com/afksH.png", 
+    3: "https://r.resimlink.com/lNEj36s5hVJR.png",
+    4: "https://r.resimlink.com/AxjSWCYQ.png",
+    5: "https://r.resimlink.com/XtVCdb9S7MOp.png",
+    6: "https://r.resimlink.com/yGp-N7v.png",
+    7: "https://r.resimlink.com/a9YwkIb2e.png",
+    8: "https://r.resimlink.com/nwG7ZdI9.png",
+    9: "https://r.resimlink.com/aRUMhz14bt.png",};
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const columns = [
@@ -16,13 +27,20 @@ const AlimList = () => {
       title: "Alim Görseli",
       dataIndex: "picture",
       key: "picture",
-      render: (imgSrc) => { const defaultImg = 'https://r.resimlink.com/_oRpyZYj7JN.png'; return <img src={imgSrc || defaultImg} alt="Image" width={50} style={{borderRadius:"0.8rem"}} />; },
+      render: (imgSrc) => { const defaultImg = 'https://r.resimlink.com/Rj3Mz12_UB.png'; const finalImgSrc = imgSrc && !isNaN(imgSrc) ? pictureLinks[imgSrc] || defaultImg : (imgSrc || defaultImg); return <img src={finalImgSrc} alt="Image" width={100} style={{borderRadius:"0.8rem"}} />;},
     },
     {
       title: "İsmi",
       dataIndex: "name",
       key: "name",
-      render: (text) => <b>{text}</b>,
+      render: (text) => {
+        const formattedText = text
+          .toLowerCase()
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+        return <p className='AlimList-name'>{formattedText}</p>;
+      },
     },
     {
       title: "Doğum Yılı",
@@ -60,7 +78,7 @@ const AlimList = () => {
       key: "actions",
       render: (_, record) => (
         <Space>
-          <Button type="primary" onClick={() => navigate(`/zupizu/alim/update/${record._id}`)}>
+          <Button type="primary" onClick={() => navigate(`/authpage/alim/update/${record._id}`)}>
             Düzenle
           </Button>
           <Popconfirm
@@ -207,4 +225,4 @@ const AlimList = () => {
   );
 };
 
-export default AlimList
+export default AlimList;

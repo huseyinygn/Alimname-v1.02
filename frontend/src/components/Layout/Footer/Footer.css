@@ -1,8 +1,5 @@
 .Logolar img::selection,
-.AllRightsReserved::selection,
-.ProducedBy::selection,
-.Hakkımızda::selection,
-.AllRightsReserved h3::selection{
+.Hakkımızda::selection{
     background: transparent;
 }
 
@@ -60,7 +57,9 @@ footer{
     font-size: 1.4rem;
     color: var(--highcolor);
 }
-.Hakkımızda{
+.ProducedBy{
+    font-weight: 400;
+    font-size: 1.1rem;
     color: var(--highcolor);
-    text-decoration: underline;
+    opacity: 70%;
 }

@@ -35,27 +35,27 @@ const AdminLayout = ({ children }) => {
       key: "1",
       icon: <UnorderedListOutlined />,
       label: "Alim Listesi",
-      path:"/zupizu",
+      path:"/authpage",
       onClick: () => {
-        navigate(`/zupizu`);
+        navigate(`/authpage`);
       },
     },
     {
       key: "2",
       icon: <PlusCircleOutlined />,
       label: "Alim Ekleme",
-      path: "/zupizu/alim/add",
+      path: "/authpage/alim/add",
       onClick: () => {
-        navigate(`/zupizu/alim/add`);
+        navigate(`/authpage/alim/add`);
       },
     },
     {
       key: "3",
       icon: <UserOutlined />,
       label: "Admin Listesi",
-      path: "/zupizu/admins",
+      path: "/authpage/admins",
       onClick: () => {
-        navigate(`/zupizu/admins`);
+        navigate(`/authpage/admins`);
       },
     },
   ];

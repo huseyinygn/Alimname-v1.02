@@ -1,34 +1,6 @@
-/* @media  (min-width:769px) and (max-width: 1024px) {
-  .Mpupper-siteyazi-alimname{
-    width: 50rem;
-    position: relative;
-    top: 7rem;
-  }
-} 
-
-@media (min-width:1025px) {
-  .Mpupper-siteyazi-alimname{
-    width: 75rem;
-    position: relative;
-    top: 2rem;
-    right: 1.5rem;
-  }
-} 
-@media (min-width:481px) and (max-width: 768px) {
-  .Mpupper-siteyazi-alimname{
-    width: 45rem;
-    position: relative;
-    top: 7rem;
-  }
+.Mpupper-siteyazi-alimname::selection{
+  background-color: transparent;
 }
-@media (min-width:320px) and (max-width: 480px) {
-  .Mpupper-siteyazi-alimname{
-    width: 30rem;
-    position: relative;
-    top: 9rem;
-  }
-}  
- */
  @media (min-width:1025px) {
   .Mpupper-img img{
     width: 75rem;
@@ -75,7 +47,7 @@
   height: 6rem;
   width: 5rem;
   position: relative;
-  top: -24rem;
+  top: -20rem;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   display: flex;

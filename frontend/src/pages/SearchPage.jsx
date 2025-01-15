@@ -6,7 +6,7 @@ const SearchPage = () => {
   return (
     <div>
       <Search/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

@@ -60,3 +60,27 @@
   justify-content: center;
   align-items: center;
 }
+.Usepc{
+  font-weight: 500;
+  color: var(--linkhovercolor);
+  background-color: var(--pageBackgroundColor);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+}
+.Usepc-mainpage{
+  height: 3rem;
+  background-color: var(--highcolor);
+  border: 0.1rem solid var(--highcolor);
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--textgray);
+}
+.Usepc-warn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

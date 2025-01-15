@@ -184,11 +184,29 @@ const UpdateAlimPage = () => {
             name="region"
           >
             <Input.TextArea
+            placeholder="
+            A: Orta Balkan Ülkeleri,
+            B: Türkiye,
+            C: Suriye,
+            Ç: İran,
+            D: Irak,
+            E: Arap Yarımadasındaki Ülkeler,
+            F: Ürdün,
+            G: Lübnan, İsrail ve Filistin,
+            Ğ: Mısır,
+            H: Libya,
+            I: Tunus,
+            İ: Cezayir,
+            J: Fas,
+            P: Romanya,
+            R: Bulgaristan,
+            S: Yunanistan,
+            Ş: Macaristan,"
               autoSize={{ minRows: 6 }}
             />
           </Form.Item>
           <Form.Item
-            label="Alimin Çalışma Alanı (Çalışma alanları arasına boşluk olmadan virgül koyunuz)"
+            label="Alimin Çalışma Alanı (Çalışma alanları arasına virgül koyunuz)"
             name="worktype"
             rules={[
               {
@@ -220,7 +238,7 @@ const UpdateAlimPage = () => {
             />
           </Form.Item>
           <Form.Item
-            label="Kaynakca (Lütfen kaynakcalar arasında bir birim boşluk bırakın)"
+            label="Kaynakca (Lütfen kaynakcalar arasına virgül koyun)"
             name="source"
             rules={[
                 {
@@ -246,7 +264,7 @@ const UpdateAlimPage = () => {
           >
             <Select placeholder="Düzenleyen kişiyi seçin">
     <Select.Option value="Serdar Yiğit Çetin">Serdar Yiğit Çetin</Select.Option>
-    <Select.Option value="Melikhan Demirkıran">Melikhan Demirkıran</Select.Option>
+    <Select.Option value="Hüseyin Yegin">Hüseyin Yegin</Select.Option>
   </Select>
           </Form.Item>
           <Button type="primary" htmlType="submit">

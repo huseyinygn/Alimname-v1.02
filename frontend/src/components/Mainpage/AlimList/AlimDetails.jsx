@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./css/AlimDetails.css";
 import PropTypes from "prop-types";
 
 const AlimDetails = ({ singleAlim }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.removeAttribute("data-theme");
-    }
-  }, []);
+  // İlk harf ve boşluktan sonra gelen ilk harfleri büyük yapma fonksiyonu
+  const capitalizeWords = (text) => {
+    const formattedText = text
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    return formattedText;
+  };
 
   const borntime = singleAlim.borntime ? singleAlim.borntime : "Bilinmiyor";
   const deathtime = singleAlim.deathtime ? singleAlim.deathtime : "Bilinmiyor";
-  const fullname = singleAlim.fullname ? singleAlim.fullname : singleAlim.name;
+  const fullname = singleAlim.fullname ? capitalizeWords(singleAlim.fullname) : capitalizeWords(singleAlim.name);
   const century = singleAlim.century ? singleAlim.century : "Bilinmiyor";
   const civilization = singleAlim.civilization
     ? singleAlim.civilization
@@ -25,9 +23,17 @@ const AlimDetails = ({ singleAlim }) => {
   const life = singleAlim.life ? singleAlim.life : null;
   const works = singleAlim.works ? singleAlim.works : null;
   const extra = singleAlim.extra ? singleAlim.extra : null;
-  const picture = singleAlim.picture
-    ? singleAlim.picture
-    : "https://r.resimlink.com/_oRpyZYj7JN.png";
+  const pictureLinks = { 
+    1: "https://r.resimlink.com/R38wQs.png", 
+    2: "https://r.resimlink.com/afksH.png", 
+    3: "https://r.resimlink.com/lNEj36s5hVJR.png",
+    4: "https://r.resimlink.com/AxjSWCYQ.png",
+    5: "https://r.resimlink.com/XtVCdb9S7MOp.png",
+    6: "https://r.resimlink.com/yGp-N7v.png",
+    7: "https://r.resimlink.com/a9YwkIb2e.png",
+    8: "https://r.resimlink.com/nwG7ZdI9.png",
+    9: "https://r.resimlink.com/aRUMhz14bt.png",};
+  const picture = singleAlim.picture ? (isNaN(singleAlim.picture) ? singleAlim.picture : pictureLinks[singleAlim.picture]) : "https://r.resimlink.com/Rj3Mz12_UB.png";
   const sources = singleAlim.source
     ? singleAlim.source.split(",").map((source) => source.trim())
     : [];
@@ -90,7 +96,7 @@ const AlimDetails = ({ singleAlim }) => {
             <h3>Düzenleyen:</h3>
             <h4>{singleAlim.organizer}</h4>
           </div>
-          <h2 className="Alims-name word-break">{singleAlim.name}</h2>
+          <h2 className="Alims-name word-break">{capitalizeWords(singleAlim.name)}</h2>
           <h2 className="Alims-borndeathtime">
             ({borntime}-{deathtime})
           </h2>
@@ -118,7 +124,7 @@ const AlimDetails = ({ singleAlim }) => {
           {life && (
             <div className="AlimDetails-SecondFlex Flex">
               <h2 className="Alims-life shortdetails">
-                <h3>Alimin Hayatı:</h3> <h4>{life}</h4>
+              <h3>Alimin Hayatı:</h3> <h4 dangerouslySetInnerHTML={{ __html: life.replace(/\n/g, '<br />') }}></h4>
               </h2>
             </div>
           )}
@@ -127,7 +133,7 @@ const AlimDetails = ({ singleAlim }) => {
           {works && (
             <div className="AlimDetails-SecondFlex Flex">
               <h2 className="Alims-works shortdetails">
-                <h3>Alimin Çalışmaları ve Eserleri:</h3> <h4>{works}</h4>
+              <h3>Alimin Çalışmaları ve Eserleri:</h3> <h4 dangerouslySetInnerHTML={{ __html: works.replace(/\n/g, '<br />') }}></h4>
               </h2>
             </div>
           )}
@@ -136,7 +142,7 @@ const AlimDetails = ({ singleAlim }) => {
           {extra && (
             <div className="AlimDetails-SecondFlex Flex">
               <h2 className="Alims-extra shortdetails">
-                <h3>Alim ile İlgili Ek Bilgiler:</h3> <h4>{extra}</h4>
+              <h3>Alim ile İlgili Ek Bilgiler:</h3> <h4 dangerouslySetInnerHTML={{ __html: extra.replace(/\n/g, '<br />') }}></h4>
               </h2>
             </div>
           )}

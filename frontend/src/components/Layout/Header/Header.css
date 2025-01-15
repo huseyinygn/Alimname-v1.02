@@ -3,7 +3,7 @@ header img::selection,
 header input::selection {
   background-color: transparent;
 }
-@media (min-width: 1180px) {
+@media (min-width: 1280px) {
   .mainheader-textinput {
     height: 4rem;
     border-right: none;
@@ -16,8 +16,14 @@ header input::selection {
     outline-color: var(--firstcolor);
     width: 70rem;
   }
+  .mainheader-searchbar {
+    position: relative;
+    left: 7rem;
+    display: flex;
+    align-items: center;
+  }
 }
-@media (min-width: 920px) and (max-width: 1179px) {
+@media (min-width: 1020px) and (max-width: 1289px) {
   .mainheader-textinput {
     width: 40rem;
     height: 4rem;
@@ -34,8 +40,14 @@ header input::selection {
     position: relative;
     right: 2rem;
    }
+   .mainheader-searchbar {
+    position: relative;
+    left: 7rem;
+    display: flex;
+    align-items: center;
+  }
 }
-@media (min-width: 681px) and (max-width: 919px) {
+@media (min-width: 740px) and (max-width: 1020px) {
   .mainheader-textinput {
     width: 16rem;
     height: 4rem;
@@ -50,10 +62,16 @@ header input::selection {
   }
   .ThemeSwitchHeader{
     position: relative;
-    right: 2rem;
+    right: 0rem;
    }
+   .mainheader-searchbar {
+    position: relative;
+    left: 7rem;
+    display: flex;
+    align-items: center;
+  }
 }
-@media (min-width: 381px) and (max-width: 680px) {
+@media (min-width: 381px) and (max-width: 740px) {
   .mainheader-textinput {
     width: 16rem;
     height: 4rem;
@@ -76,6 +94,12 @@ header input::selection {
    .mainheader-map{
     display: none;
    }
+   .mainheader-searchbar {
+    position: relative;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+  }
 }
 @media (min-width: 320px) and (max-width: 380px) {
   .mainheader-textinput {
@@ -100,6 +124,12 @@ header input::selection {
    .mainheader-map{
     display: none;
    }
+   .mainheader-searchbar {
+    position: relative;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+  }
 }
 .mainheader-textinput::selection {
   background-color: var(--highcolor);
@@ -130,12 +160,6 @@ header input::selection {
   left: 2rem;
   cursor: pointer;
   visibility: visible;
-}
-.mainheader-searchbar {
-  position: relative;
-  left: 2rem;
-  display: flex;
-  align-items: center;
 }
 
 .mainheader-ara {
@@ -170,6 +194,7 @@ header input::selection {
 }
 .ThemeSwitchHeader{
   border: 1px solid var(--highcolor);
+  margin-right: 2rem;
 }
 .mainheader-map{
   height: 4rem;

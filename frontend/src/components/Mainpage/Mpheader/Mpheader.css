@@ -1,22 +1,27 @@
 header img::selection,
 .header-ara::selection,
-header input::selection{
+header input::selection,
+.header-hakkimizda::selection{
   background-color: transparent;
 }
-.header-textinput::selection{
-  background-color: var(--highcolor);
-}
-@media (min-width:320px) and (max-width: 479px) {
+@media (min-width:320px) and (max-width: 350px) {
   .header-searchbar{
     width: 20rem !important; 
+    left: 2rem;
+  }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 6rem;
+    align-items: center;
+  }
+  .header-searchbar.sticky{
+    left: 1.5rem;
   }
   .header-textinput {
     width: 10rem !important;
   }
   .header-hakkimizda{
-    display: none !important;
-  }
-  .top-logo{
     display: none !important;
   }
   .header-map{
@@ -26,10 +31,27 @@ header input::selection{
     position: relative;
     left: 6rem !important;
   }
+  .top-logo.sticky{
+    left: 1rem !important;
+  }
+  .ThemeSwitch{
+    position: relative;
+    left: 6rem !important;
+  }
 } 
-@media (min-width:480px) and (max-width: 699px) {
+@media (min-width:350px) and (max-width: 400px) {
   .header-searchbar{
     width: 20rem !important; 
+    left: 2rem;
+  }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 6rem;
+    align-items: center;
+  }
+  .header-searchbar.sticky{
+    left: 2.5rem;
   }
   .header-textinput {
     width: 10rem !important;
@@ -37,20 +59,85 @@ header input::selection{
   .header-hakkimizda{
     display: none !important;
   }
-  .top-logo{
+  .header-map{
     display: none !important;
   }
   .ThemeSwitch.sticky{
     position: relative;
-    right: -5rem !important;
+    left: 6rem !important;
+  }
+  .top-logo.sticky{
+    left: 1rem !important;
   }
 } 
-  @media (min-width:700px) and (max-width: 879px) {
+@media (min-width:400px) and (max-width: 530px) {
+  .header-searchbar{
+    width: 20rem !important; 
+    left: 2rem;
+  }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 6rem;
+    align-items: center;
+  }
+  .header-searchbar.sticky{
+    left: 2.5rem;
+  }
+  .header-textinput {
+    width: 10rem !important;
+  }
+  .header-hakkimizda{
+    display: none !important;
+  }
+  .header-map{
+    display: none !important;
+  }
+  .ThemeSwitch.sticky{
+    position: relative;
+    left: 4rem !important;
+  }
+} 
+@media (min-width:530px) and (max-width: 739px) {
+  .header-searchbar{
+    width: 20rem !important;
+  }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 7rem;
+    align-items: center;
+  }
+  .header-searchbar.sticky{
+    left: 6rem;
+  }
+  .header-textinput {
+    width: 10rem !important;
+  }
+  .header-hakkimizda{
+    display: none !important;
+  }
+  .ThemeSwitch.sticky{
+    position: relative;
+    left: 2rem !important;
+    
+  }
+} 
+  @media (min-width:740px) and (max-width: 879px) {
   .header-searchbar{
     width: 20rem !important; 
   }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 5rem;
+    align-items: center;
+  }
   .header-textinput {
     width: 13rem !important;
+  }
+  .header-searchbar.sticky{
+    left: 8.5rem;
   }
   .ThemeSwitch.sticky{
     position: relative;
@@ -60,17 +147,35 @@ header input::selection{
 @media (min-width:880px) and (max-width: 1039px) {
   .header-textinput.sticky {
     width: 20rem;
-    margin-left: -1rem;
+    margin-left: 4rem;
+  }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 5rem;
+    align-items: center;
   }
 }
 @media (min-width:1040px) and (max-width: 1279px) {
   .header-textinput.sticky {
     width: 45rem;
   }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 5rem;
+    align-items: center;
+  }
 }
 @media (min-width:1280px) {
   .header-textinput.sticky {
     width: 70rem;
+  }
+  .header-searchbar {
+    position: relative;
+    display: flex;
+    left: 5rem;
+    align-items: center;
   }
 }
 .header.sticky {
@@ -101,15 +206,9 @@ header input::selection{
   cursor: pointer;
   display: none;
 }
-.header-searchbar {
-  position: relative;
-  display: flex;
-  left: 5rem;
-  align-items: center;
-}
 .header-searchbar.sticky{
   position: relative;
-  left: 7rem;
+  
 }
 .header input {
   width: 25rem;

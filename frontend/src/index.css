@@ -5,16 +5,17 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  
 }
-
+::selection{
+  background-color: var(--firstcolor);
+}
 html {
   font-size: 10px;
 }
 
 :root {
   /* TEMA RENKLERİ */
-  --firstcolor: rgba(221, 186, 122, 0.9); /* TEMA RENGİ */
+  --firstcolor: #ddba7ae6; /* TEMA RENGİ */
   --highcolor: rgb(250, 227, 127); /* VURGU SAĞLAMAK İÇİN */
   --softbackgroundcolor: rgb(218, 210, 176);
   --backgroundcolor: rgba(71, 71, 71, 0.4); /* KONTRAST SAĞLAMAK İÇİN */
@@ -38,7 +39,7 @@ html {
 
 [data-theme="dark"] {
   /* DARK MODE RENKLERİ */
-  --firstcolor: #ddba7ae6; /* TEMA RENGİ */
+  --firstcolor: rgba(221, 186, 122, 0.902); /* TEMA RENGİ */
   --highcolor: rgb(250, 227, 127); /* VURGU SAĞLAMAK İÇİN */
   --softbackgroundcolor: rgb(218, 210, 176);
   --backgroundcolor: rgba(71, 71, 71, 0.4); /* KONTRAST SAĞLAMAK İÇİN */
@@ -51,6 +52,7 @@ html {
   --organizercolor:var(--secondcolor);
   --pageroutercolor: var(--highcolor);
   --searchpagecolor:var(--detailflexcolor);
+  --highlighter: #f0ae46;
 
   /* YAZI RENKLERİ */
    --baslikrengi: #dbdbdb;
@@ -77,7 +79,6 @@ html::-webkit-scrollbar-track {
 body {
   background-color: var(--secondcolor);
 }
-
 
 h1,
 h2,

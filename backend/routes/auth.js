@@ -3,7 +3,7 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 
-// Admin Oluşturma (Create - Register)
+/* // Admin Oluşturma (Create - Register)
 router.post("/register", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -28,7 +28,7 @@ router.post("/register", async (req, res) => {
     console.log(error);
     res.status(500).json({ error: "Server error." });
   }
-});
+}); */
 
 // Admin girişi (Login)
 router.post("/login", async (req, res) => {

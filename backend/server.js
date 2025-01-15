@@ -25,5 +25,4 @@ app.use(cors());
 app.use("/api", mainRoute);
 app.listen(port, () => {
   connect();
-  console.log(`Sunucu ${port} portunda çalışıyor.`);
 });

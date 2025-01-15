@@ -5,14 +5,12 @@ const Footer = () => {
   return (
     <footer>
         <div className='Logolar'>
-            <img src="../../../../icons/tubitak-logo.png" alt="" className='Tubitaklogo logo'/>
-            <img src="../../../../icons/alimname-logo.png" alt="Alimname.com" className='Alimnamelogo logo'/>
+            <img src="../../../../icons/tubitak-logo.webp" alt="" className='Tubitaklogo logo'/>
+            <img src="../../../../icons/alimname-logo.webp" alt="Alimname.com" className='Alimnamelogo logo'/>
         </div>
         <div className='AllRightsReserved'><h3>Tüm hakları saklıdır. 2024 Alimname.com</h3></div>
         <h3 className='ProducedBy'>Produced by Hüseyin Y.</h3>
-        <Link to={"/hakkimizda"}>
-          <h4 className='Hakkımızda'>Hakkımızda</h4>
-          </Link>
+        <h3 className='ProducedBy'>En iyi deneyim ve filtreleme seçenekleri için tablet veya bilgisayar kullanımı tavsiye edilir</h3>
     </footer>
   )
 }

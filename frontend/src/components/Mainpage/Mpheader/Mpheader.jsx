@@ -52,9 +52,9 @@ const MpHeader = () => {
    
   return (
     <header className={`header ${isSticky ? "sticky" : ""}`}>
-      <Link to={"/"}>
+      <Link to={"/"} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}>
       <img
-        src="././icons/alimname-logo.png"
+        src="././icons/alimname-logo.webp"
         alt=""
         className={`top-logo ${isSticky ? "sticky" : ""}`}
       />
@@ -84,9 +84,6 @@ const MpHeader = () => {
   }}> 
         <Switch className={`ThemeSwitch ${isSticky ? "sticky" : ""}`} checked={isDarkMode} onChange={toggleTheme}/>
         </ConfigProvider>
-        <Link to={"/hakkimizda"}>
-        <button className={`header-hakkimizda ${isSticky ? "sticky" : ""}`}>Hakkımızda</button>
-        </Link>
         <Link to={"/map"}>
         <button className={`header-map ${isSticky ? "sticky" : ""}`}><i className="bi bi-globe-central-south-asia"></i></button>
         </Link>

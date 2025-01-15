@@ -95,9 +95,9 @@ router.get("/:alimId", async (req, res) => {
 // Alimleri isme göre ara
 router.get("/search/:alimName", async (req, res) => {
   try {
-    const alimName = req.params.alimName;
+    const alimName = req.params.alimName.toUpperCase(); // Arama terimini büyük harfe çevir
     const alims = await Alim.find({
-      name: { $regex: alimName, $options: "i" }
+      name: { $regex: alimName, $options: "i" } // Büyük/küçük harf hassasiyetini kaldıran "i" bayrağı
     });
 
     res.status(200).json(alims);
@@ -106,6 +106,7 @@ router.get("/search/:alimName", async (req, res) => {
     res.status(500).json({ error: "Server error." });
   }
 });
+
 
 
 

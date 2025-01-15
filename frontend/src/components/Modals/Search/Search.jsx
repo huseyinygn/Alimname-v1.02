@@ -11,7 +11,16 @@ const Search = () => {
   const [centuryFilters, setCenturyFilters] = useState([]);
   const [civilizationFilters, setCivilizationFilters] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const pictureLinks = { 
+    1: "https://r.resimlink.com/R38wQs.png", 
+    2: "https://r.resimlink.com/afksH.png", 
+    3: "https://r.resimlink.com/lNEj36s5hVJR.png",
+    4: "https://r.resimlink.com/AxjSWCYQ.png",
+    5: "https://r.resimlink.com/XtVCdb9S7MOp.png",
+    6: "https://r.resimlink.com/yGp-N7v.png",
+    7: "https://r.resimlink.com/a9YwkIb2e.png",
+    8: "https://r.resimlink.com/nwG7ZdI9.png",
+    9: "https://r.resimlink.com/aRUMhz14bt.png",};
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const columns = [
@@ -20,10 +29,11 @@ const Search = () => {
       dataIndex: "picture",
       key: "picture",
       render: (imgSrc) => {
-        const defaultImg = "https://r.resimlink.com/_oRpyZYj7JN.png";
+        const defaultImg = "https://r.resimlink.com/Rj3Mz12_UB.png";
+        const finalImgSrc = imgSrc && !isNaN(imgSrc) ? pictureLinks[imgSrc] || defaultImg : (imgSrc || defaultImg); 
         return (
           <img
-            src={imgSrc || defaultImg}
+            src={finalImgSrc}
             alt="Image"
             width={100}
             style={{ borderRadius: "0.8rem" }}
@@ -32,12 +42,13 @@ const Search = () => {
       },
       align: "center",
     },
+    
     {
       title: "İsmi",
       dataIndex: "name",
       key: "name",
-      render: (text) => <b className='Searchlist-name'>{text}</b>,
-      align: "center",
+      render: (text) => {const formattedText = text .toLowerCase() .split(' ') .map(word => word.charAt(0).toUpperCase() + word.slice(1)) .join(' '); return <p className='AlimList-name'>{formattedText}</p>;},
+      align:"center",
     },
     {
       title: "Yaşadığı Yüzyıl",
@@ -62,17 +73,9 @@ const Search = () => {
   ];
   useEffect(() => {
     const storedItem = localStorage.getItem("search-item");
-    const savedTheme = localStorage.getItem("theme");
     if (storedItem) {
       setInputValue(storedItem);
       handleSearch();
-    }
-    if (savedTheme === "dark") {
-      setIsDarkMode(true);
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.removeAttribute("data-theme");
     }
   }, []);
   const handleSearch = async () => {
@@ -170,7 +173,7 @@ const Search = () => {
       <div className="Search-container">
         <Link to={"/"}>
           <img
-            src="../../../../icons/alimname-krem-yazi.png"
+            src="../../../../icons/alimname-krem-yazi.webp"
             alt="Alimname.com"
             className="Alimname-yazi"
           />
@@ -234,13 +237,16 @@ const Search = () => {
                 </h3>
                 <Table
                   dataSource={searchResults}
+                  locale={{ emptyText: ( <div style={{ color: 'var(--organizercolor)', padding: '40px' }}> <b>Bu filtrelere uyan herhangi bir alim bulamadık! </b></div> ), }}
                   columns={columns}
                   rowKey={(record) => record._id}
                   className="Table-search"
                   bordered={false}
                   pagination={
+                    
                     filteredData.length > 7
                       ? {
+                        showSizeChanger:false,
                           pageSize: 7,
                           total: filteredData.length,
                           position: ["bottomCenter"],
@@ -249,6 +255,7 @@ const Search = () => {
                           },
                         }
                       : false
+                      
                   }
                   onChange={handleTableChange}
                   onRow={(record) => ({

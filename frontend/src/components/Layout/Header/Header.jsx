@@ -44,7 +44,7 @@ const Header = () => {
     <header className={`mainheader`}>
       <Link to={"/"}>
         <img
-          src="../../../../icons/alimname-logo.png"
+          src="../../../../icons/alimname-logo.webp"
           alt=""
           className={`maintop-logo`}
         />
@@ -81,11 +81,8 @@ const Header = () => {
             onChange={toggleTheme}
           />
         </ConfigProvider>
-        <Link to={"/hakkimizda"}>
-          <button className="mainheader-hakkimizda">Hakkımızda</button>
-        </Link>
         <Link to={"/map"}>
-        <button className="mainheader-map" ><i class="bi bi-globe-central-south-asia"></i></button>
+        <button className="mainheader-map" ><i className="bi bi-globe-central-south-asia"></i></button>
         </Link>
       </nav>
     </header>

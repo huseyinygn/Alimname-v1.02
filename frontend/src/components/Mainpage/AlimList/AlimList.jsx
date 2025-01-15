@@ -11,6 +11,17 @@ const AlimList = () => {
   const [civilizationFilters, setCivilizationFilters] = useState([]);
   const [worktypeFilters, setWorktypeFilters] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [changedPage, setChangedPage] = useState(false);
+  const pictureLinks = { 
+    1: "https://r.resimlink.com/R38wQs.png", 
+    2: "https://r.resimlink.com/afksH.png", 
+    3: "https://r.resimlink.com/lNEj36s5hVJR.png",
+    4: "https://r.resimlink.com/AxjSWCYQ.png",
+    5: "https://r.resimlink.com/XtVCdb9S7MOp.png",
+    6: "https://r.resimlink.com/yGp-N7v.png",
+    7: "https://r.resimlink.com/a9YwkIb2e.png",
+    8: "https://r.resimlink.com/nwG7ZdI9.png",
+    9: "https://r.resimlink.com/aRUMhz14bt.png",};
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -19,14 +30,14 @@ const AlimList = () => {
       title: "Alim Görseli",
       dataIndex: "picture",
       key: "picture",
-      render: (imgSrc) => { const defaultImg = 'https://r.resimlink.com/_oRpyZYj7JN.png'; return <img src={imgSrc || defaultImg} alt="Image" width={100} style={{borderRadius:"0.8rem"}} />; },
+      render: (imgSrc) => { const defaultImg = 'https://r.resimlink.com/Rj3Mz12_UB.png'; const finalImgSrc = imgSrc && !isNaN(imgSrc) ? pictureLinks[imgSrc] || defaultImg : (imgSrc || defaultImg); return <img src={finalImgSrc} alt="Image" width={100} style={{borderRadius:"0.8rem"}} />;},
       align:"center",
     },
     {
       title: "İsmi",
       dataIndex: "name",
       key: "name",
-      render: (text) => <p className='AlimList-name'>{text}</p>,
+      render: (text) => {const formattedText = text .toLowerCase() .split(' ') .map(word => word.charAt(0).toUpperCase() + word.slice(1)) .join(' '); return <p className='AlimList-name'>{formattedText}</p>;},
       align:"center",
     },
     {
@@ -83,7 +94,8 @@ const AlimList = () => {
            century: item.century ? item.century : "Bilinmiyor",
            civilization: item.civilization ? item.civilization : "Bilinmiyor",
            worktype: item.worktype ? item.worktype.split(',').map(w => w.trim()).join(', ') : ["Bilinmiyor"] }));
-        const sortedData = updatedData.sort((a, b) => a.name.localeCompare(b.name));
+        const sortedData = updatedData.sort((a, b) => {
+          const isLinkA = a.picture && (a.picture.startsWith('http') || a.picture.startsWith('https')); const isLinkB = b.picture && (b.picture.startsWith('http') || b.picture.startsWith('https')); if (isLinkA && !isLinkB) return -1; if (!isLinkA && isLinkB) return 1; if (a.picture && !b.picture) return -1; if (!a.picture && b.picture) return 1; return a.name.localeCompare(b.name);});
         setDataSource(sortedData);
         setFilteredData(sortedData);
 
@@ -158,24 +170,46 @@ const handleTableChange = (pagination, filters, sorter) => {
       },
     }}>
     <Table
-      dataSource={dataSource}
-      columns={columns}
-      rowKey={(record) => record._id}
-      className='Table'
-      bordered={false}
-      pagination={filteredData.length > 7 ? {
-        pageSize:7,
-        total: filteredData.length,
-        position:['bottomCenter'],
-        onChange:()=>{window.scrollTo(0, 220);}
-      } : false}
-      onChange={handleTableChange}
-      onRow={(record) => ({
-        onClick: () => {
-          navigate(`/alim/${record._id}`);
-          
-        },className: 'table-row',})}
-    />
+  dataSource={dataSource}
+  locale={{ 
+    emptyText: (
+      <div style={{ color: 'var(--organizercolor)', padding: '40px' }}>
+        <b>Bu filtrelere uyan herhangi bir alim bulamadık! </b>
+      </div>
+    ), 
+  }}
+  columns={columns}
+  rowKey={(record) => record._id}
+  className={`Table ${changedPage ? "changed" : ""}`}
+  bordered={false}
+  pagination={filteredData.length > 7 ? {
+    pageSize: 6,
+    showSizeChanger:false,
+    total: filteredData.length,
+    position: ['bottomCenter'],
+    onChange: (page) => {
+      window.scrollTo(0, 230);
+      if (page !== 1) {
+        setChangedPage(true);
+      }
+    }
+  } : false}
+  onChange={(pagination, filters, sorter) => {
+    handleTableChange(pagination, filters, sorter);
+    if (pagination.current !== 1) {
+      setChangedPage(true);
+    }else{
+      setChangedPage(false)
+    }
+  }}
+  rowClassName="table-row"
+  onRow={(record) => ({
+    onClick: () => {
+      navigate(`/alim/${record._id}`);
+    },
+  })}
+/>
+
     </ConfigProvider>
   );
 };
