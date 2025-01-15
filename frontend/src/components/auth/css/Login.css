@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--detailflexcolor);
 }
 .alimname-yazı {
   width: 30rem;
@@ -36,6 +37,7 @@
   border-radius: 0.5rem;
   padding-left: 1rem;
   outline-color: var(--firstcolor);
+  color: var(--textcolor);
 }
 .login button {
   width: 30rem;

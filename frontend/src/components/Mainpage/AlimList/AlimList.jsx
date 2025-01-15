@@ -1,5 +1,5 @@
 import React from 'react'
-import {ConfigProvider, Table, message, Spin, Flex } from "antd";
+import {ConfigProvider, Table, message, Spin } from "antd";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoadingOutlined } from '@ant-design/icons';
@@ -36,6 +36,7 @@ const AlimList = () => {
       render: (text) => <p className='AlimList-others'>{text}</p>,
       filters: centuryFilters,
       onFilter: (value, record) => record.century ? record.century.includes(value) : false,
+      filterSearch: true,
       align:"center",
       responsive: ['md'],
 
@@ -47,6 +48,7 @@ const AlimList = () => {
       render: (text) => <p className='AlimList-others'>{text}</p>,
       filters: civilizationFilters,
       onFilter: (value, record) => record.civilization ? record.civilization.includes(value) : false,
+      filterSearch: true,
       align:"center",
       responsive: ['md'],
     },
@@ -63,6 +65,7 @@ const AlimList = () => {
              return <p className='AlimList-others'>{formattedWorktypes}</p>; },
       filters: worktypeFilters,
       onFilter: (value, record) => record.worktype ? record.worktype.includes(value) : false,
+      filterSearch: true,
       align:"center",
       responsive: ['lg'],
     }
@@ -134,13 +137,15 @@ const handleTableChange = (pagination, filters, sorter) => {
           headerBg:"var(--highcolor)",
           borderColor:"var(--firstcolor)",
           headerBorderRadius:"0.5rem",
-          colorTextHeading:"var(--textcolor)"
+          colorTextHeading:"var(--listheadercolor)",
         },
         Pagination:{
-          colorPrimary:"var(--firstcolor)",
+          colorPrimary:"var(--secondcolor)",
           colorPrimaryHover:"var(--highcolor)",
           colorPrimaryBorder:"var(--highcolor)",
-          colorText:"var(--textcolor)"
+          colorText:"var(--pagerotherbuttonstext)",
+          itemActiveBg: "var(--firstcolor)",
+          itemBg: "var(--pagerotherbuttons)",
 
         },
         Checkbox: {

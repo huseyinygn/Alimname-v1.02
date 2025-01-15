@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 * {
   margin: 0;
   padding: 0;
@@ -18,13 +18,46 @@ html {
   --highcolor: rgb(250, 227, 127); /* VURGU SAĞLAMAK İÇİN */
   --softbackgroundcolor: rgb(218, 210, 176);
   --backgroundcolor: rgba(71, 71, 71, 0.4); /* KONTRAST SAĞLAMAK İÇİN */
+  --detailflexcolor: var(--secondcolor);
   --secondcolor: #ffffff;  /* GENEL ARKAPLAN RENGİ */
-  --pageBackgroundColor: rgb(219, 194, 146, 0.1); /* DAHA KOYU ARKA PLAN RENGİ */
-  --footerBackgroundColor: #555555;
+  --pageBackgroundColor: #dbc2921a; /* DAHA KOYU ARKA PLAN RENGİ */
+  --footerBackgroundColor: #808080;
+  --pagerotherbuttons: var(--secondcolor);
+  --pageroutercolor: var(--secondcolor);
+  --pagerotherbuttonstext: var(--textcolor);
+  --organizercolor:var(--textcolor);
+  --searchpagecolor:var(--pageBackgroundColor);
 
   /* YAZI RENKLERİ */
    --baslikrengi: #555555;
    --textcolor: #333333;
+   --listheadercolor: #333333;
+   --linkcolor: blue;
+   --linkhovercolor: var(--textcolor);
+}
+
+[data-theme="dark"] {
+  /* DARK MODE RENKLERİ */
+  --firstcolor: #ddba7ae6; /* TEMA RENGİ */
+  --highcolor: rgb(250, 227, 127); /* VURGU SAĞLAMAK İÇİN */
+  --softbackgroundcolor: rgb(218, 210, 176);
+  --backgroundcolor: rgba(71, 71, 71, 0.4); /* KONTRAST SAĞLAMAK İÇİN */
+  --detailflexcolor: rgba(71, 71, 71, 0.4);
+  --secondcolor: #292929;  /* GENEL ARKAPLAN RENGİ */
+  --pageBackgroundColor: var(--secondcolor); /* DAHA KOYU ARKA PLAN RENGİ */
+  --footerBackgroundColor: #363636;
+  --pagerotherbuttons: var(--footerBackgroundColor);
+  --pagerotherbuttonstext: var(--highcolor);
+  --organizercolor:var(--secondcolor);
+  --pageroutercolor: var(--highcolor);
+  --searchpagecolor:var(--detailflexcolor);
+
+  /* YAZI RENKLERİ */
+   --baslikrengi: #dbdbdb;
+   --textcolor: #dfdfdf;
+   --listheadercolor: var(--secondcolor);
+   --linkcolor: var(--highcolor);
+   --linkhovercolor: var(--firstcolor);
 }
 
 html::-webkit-scrollbar {

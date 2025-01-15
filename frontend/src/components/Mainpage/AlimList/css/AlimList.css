@@ -15,7 +15,7 @@
     padding-right: 3rem;
   }
 }
-
+.Table .ant-table { background-color: var(--secondcolor); }
 .ant-dropdown-menu-item-selected {
     background-color: var(--highcolor) !important;
   }

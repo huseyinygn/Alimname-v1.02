@@ -1,13 +1,11 @@
 header img::selection,
 .header-ara::selection,
-header input::selection{
+header input::selection {
   background-color: transparent;
 }
-@media (min-width:1025px) {
+@media (min-width: 1180px) {
   .mainheader-textinput {
     height: 4rem;
-    background-color: var(--secondcolor);
-    border: 0.1rem solid #ddd;
     border-right: none;
     border-radius: 0.5rem;
     border-top-right-radius: 0rem;
@@ -19,12 +17,10 @@ header input::selection{
     width: 70rem;
   }
 }
-@media  (min-width:769px) and (max-width: 1024px) {
+@media (min-width: 920px) and (max-width: 1179px) {
   .mainheader-textinput {
     width: 40rem;
     height: 4rem;
-    background-color: var(--secondcolor);
-    border: 0.1rem solid #ddd;
     border-right: none;
     border-radius: 0.5rem;
     border-top-right-radius: 0rem;
@@ -33,15 +29,16 @@ header input::selection{
     font-weight: 400;
     padding-left: 1rem;
     outline-color: var(--firstcolor);
-    
   }
+  .ThemeSwitchHeader{
+    position: relative;
+    right: 2rem;
+   }
 }
-@media  (min-width:481px) and (max-width: 768px) {
+@media (min-width: 681px) and (max-width: 919px) {
   .mainheader-textinput {
     width: 16rem;
     height: 4rem;
-    background-color: var(--secondcolor);
-    border: 0.1rem solid #ddd;
     border-right: none;
     border-radius: 0.5rem;
     border-top-right-radius: 0rem;
@@ -50,15 +47,16 @@ header input::selection{
     font-weight: 400;
     padding-left: 1rem;
     outline-color: var(--firstcolor);
-    
   }
+  .ThemeSwitchHeader{
+    position: relative;
+    right: 2rem;
+   }
 }
-@media  (min-width:320px) and (max-width: 480px) {
+@media (min-width: 381px) and (max-width: 680px) {
   .mainheader-textinput {
     width: 16rem;
     height: 4rem;
-    background-color: var(--secondcolor);
-    border: 0.1rem solid #ddd;
     border-right: none;
     border-radius: 0.5rem;
     border-top-right-radius: 0rem;
@@ -68,12 +66,48 @@ header input::selection{
     padding-left: 1rem;
     outline-color: var(--firstcolor);
   }
-  .mainheader-hakkimizda{
+  .mainheader-hakkimizda {
     display: none;
   }
+  .ThemeSwitchHeader{
+    position: relative;
+    right: -7rem;
+   }
+   .mainheader-map{
+    display: none;
+   }
 }
-.mainheader-textinput::selection{
+@media (min-width: 320px) and (max-width: 380px) {
+  .mainheader-textinput {
+    width: 10rem;
+    height: 4rem;
+    border-right: none;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-left: 1rem;
+    outline-color: var(--firstcolor);
+  }
+  .mainheader-hakkimizda {
+    display: none;
+  }
+  .ThemeSwitchHeader{
+    position: relative;
+    right: -7rem;
+   }
+   .mainheader-map{
+    display: none;
+   }
+}
+.mainheader-textinput::selection {
   background-color: var(--highcolor);
+}
+.mainheader-textinput{
+  background-color: var(--secondcolor);
+  border: 0.1rem solid var(--secondcolor);
+  color: var(--textcolor);
 }
 .mainheader {
   position: sticky;
@@ -88,7 +122,7 @@ header input::selection{
   transition-property: background-color;
   transition-duration: 0.2s;
   transition-timing-function: linear;
-  background-color: var(--firstcolor); 
+  background-color: var(--firstcolor);
 }
 .maintop-logo {
   width: 7rem;
@@ -99,7 +133,7 @@ header input::selection{
 }
 .mainheader-searchbar {
   position: relative;
-  left: 1rem;
+  left: 2rem;
   display: flex;
   align-items: center;
 }
@@ -108,7 +142,7 @@ header input::selection{
   height: 4rem;
   width: 6rem;
   background-color: var(--highcolor);
-  border: 0.1rem solid #ddd;
+  border: 0.1rem solid var(--highcolor);
   border-left: none;
   border-radius: 0.5rem;
   border-top-left-radius: 0rem;
@@ -120,8 +154,11 @@ header input::selection{
 .mainheader nav {
   position: relative;
   right: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
-.mainheader nav button {
+.mainheader nav .mainheader-hakkimizda {
   height: 4rem;
   width: 9rem;
   background-color: var(--highcolor);
@@ -130,4 +167,19 @@ header input::selection{
   font-size: 1.3rem;
   font-weight: 400;
   visibility: visible;
+}
+.ThemeSwitchHeader{
+  border: 1px solid var(--highcolor);
+}
+.mainheader-map{
+  height: 4rem;
+  width: 5rem;
+  background-color: var(--highcolor);
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.mainheader-map i{
+  font-size: 2rem;
 }

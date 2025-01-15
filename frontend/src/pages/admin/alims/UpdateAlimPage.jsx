@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Input, Spin, message } from "antd";
+import { Button, Form, Input, Select, Spin, message } from "antd";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { LoadingOutlined } from '@ant-design/icons';
@@ -56,6 +56,8 @@ const UpdateAlimPage = () => {
                 century: data.century,
                 life: data.life,
                 works: data.works,
+                extra: data.extra,
+                region: data.region,
                 worktype: data.worktype,
                 picture: data.picture,
                 civilization: data.civilization,
@@ -156,12 +158,6 @@ const UpdateAlimPage = () => {
           <Form.Item
             label="Alimin Hayatı"
             name="life"
-            rules={[
-              {
-                required: true,
-                message: "Lütfen alimin hayatını girin!",
-              },
-            ]}
           >
              <Input.TextArea
               autoSize={{ minRows: 6 }}
@@ -170,20 +166,36 @@ const UpdateAlimPage = () => {
           <Form.Item
             label="Alimin Çalışmaları Ve Eserleri"
             name="works"
-            rules={[
-                {
-                  required: true,
-                  message: "Lütfen alimin çalışmalarını ve eserlerini girin!",
-                },
-              ]}
           >
             <Input.TextArea
               autoSize={{ minRows: 6 }}
             />
           </Form.Item>
           <Form.Item
-            label="Alimin Çalışma Alanı"
+            label="Alim ile İlgili Extra Bilgiler"
+            name="extra"
+          >
+            <Input.TextArea
+              autoSize={{ minRows: 6 }}
+            />
+          </Form.Item>
+          <Form.Item
+            label="Alimin Yaşadığı Bölge"
+            name="region"
+          >
+            <Input.TextArea
+              autoSize={{ minRows: 6 }}
+            />
+          </Form.Item>
+          <Form.Item
+            label="Alimin Çalışma Alanı (Çalışma alanları arasına boşluk olmadan virgül koyunuz)"
             name="worktype"
+            rules={[
+              {
+                required: true,
+                message: "Lütfen alimin çalışma alanını giriniz!",
+              },
+            ]}
           >
             <Input.TextArea
               autoSize={{ minRows: 4 }}
@@ -208,7 +220,7 @@ const UpdateAlimPage = () => {
             />
           </Form.Item>
           <Form.Item
-            label="Kaynakca"
+            label="Kaynakca (Lütfen kaynakcalar arasında bir birim boşluk bırakın)"
             name="source"
             rules={[
                 {
@@ -232,10 +244,10 @@ const UpdateAlimPage = () => {
                 },
               ]}
           >
-            <Input.TextArea
-              autoSize={{ minRows: 1 }}
-              placeholder='Örneğin Serdar Yiğit Çetin'
-            />
+            <Select placeholder="Düzenleyen kişiyi seçin">
+    <Select.Option value="Serdar Yiğit Çetin">Serdar Yiğit Çetin</Select.Option>
+    <Select.Option value="Melikhan Demirkıran">Melikhan Demirkıran</Select.Option>
+  </Select>
           </Form.Item>
           <Button type="primary" htmlType="submit">
             Düzenle

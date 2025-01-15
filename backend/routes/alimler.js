@@ -16,12 +16,12 @@ router.get("/", async (req, res)=> {
 //Yeni Alim Oluşturma
 router.post("/", async (req, res)=>{
     try {
-        const {name , fullname, borntime, deathtime, century, life, works, worktype, picture, civilization, source, organizer} = req.body;
+        const {name , fullname, borntime, deathtime, century, life, works, extra, region, worktype, picture, civilization, source, organizer} = req.body;
         let picturePath = picture;
         if (!picture || picture === '') {
           picturePath = 'https://r.resimlink.com/_oRpyZYj7JN.png';
         }
-        const newAlim = new Alim({name , fullname, borntime, deathtime, century, life, works, worktype, picture: picturePath, civilization, source, organizer});
+        const newAlim = new Alim({name , fullname, borntime, deathtime, century, life, works, extra, region, worktype, picture: picturePath, civilization, source, organizer});
         await newAlim.save();
         res.status(201).json(newAlim);
 

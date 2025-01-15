@@ -4,7 +4,6 @@ import App from "./App.jsx";
 import "./index.css";
 import { Layout } from "./layouts/Layout.jsx";
 
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Layout>

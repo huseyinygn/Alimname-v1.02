@@ -6,7 +6,7 @@ const AdminListPage = () => {
     const [dataSource, setDataSource] = useState([]);
     const [loading, setLoading] = useState(false);
     const apiUrl = import.meta.env.VITE_API_BASE_URL;
-    console.log(dataSource);
+    const [isDarkMode, setIsDarkMode] = useState(false);
     
       const columns = [
         {
@@ -89,5 +89,4 @@ const AdminListPage = () => {
         />
       )
     };
-
 export default AdminListPage

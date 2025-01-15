@@ -134,7 +134,33 @@ const CreateAlimPage = () => {
             />
           </Form.Item>
           <Form.Item
-            label="Alimin Çalışma Alanı"
+            label="Alim ile İlgili Extra Bilgiler"
+            name="extra"
+            rules={[
+                {
+                  message: "Lütfen alim ile ilgili extra bilgileri girin!",
+                },
+              ]}
+          >
+            <Input.TextArea
+              autoSize={{ minRows: 6 }}
+            />
+          </Form.Item>
+          <Form.Item
+            label="Alimin Yaşadığı Bölge"
+            name="region"
+            rules={[
+                {
+                  message: "Lütfen alimin yaşadığı bölgeyi girin!",
+                },
+              ]}
+          >
+            <Input.TextArea
+              autoSize={{ minRows: 6 }}
+            />
+          </Form.Item>
+          <Form.Item
+            label="Alimin Çalışma Alanı (Çalışma alanları arasına boşluk olmadan virgül koyunuz)"
             name="worktype"
             rules={[
               {

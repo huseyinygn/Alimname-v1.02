@@ -1,9 +1,19 @@
 import { message, Spin } from "antd";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { LoadingOutlined } from '@ant-design/icons';
 import "./css/Login.css";
 const Login = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme'); 
+    if (savedTheme === 'dark') { 
+      setIsDarkMode(true); 
+      document.documentElement.setAttribute('data-theme', 'dark'); } 
+      else 
+      { setIsDarkMode(false); document.documentElement.removeAttribute('data-theme'); }
+  }, []);
+
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -59,7 +69,9 @@ const Login = () => {
             <div className="adminPanel-name">
              <h2>Yönetici Paneli Giriş</h2>
             </div>
+            <Link to={"/"}>
             <img src="../../../icons/alimname-krem-yazi.png" className="alimname-yazı"/>
+            </Link>
             <form onSubmit={handleLogin}>
             <div className="login-inputs">
                 <input type="text" placeholder="Kullanıcı ismi" name="username" onChange={handleInputChange}/>

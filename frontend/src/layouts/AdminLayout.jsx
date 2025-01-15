@@ -7,6 +7,7 @@ import {
     UnorderedListOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const { Sider, Header, Content } = Layout;
 const getUserRole = () => {
@@ -15,6 +16,10 @@ const getUserRole = () => {
 };
 
 const AdminLayout = ({ children }) => {
+   useEffect(() => { const handleBeforeUnload = () => { localStorage.removeItem('user'); }; 
+     window.addEventListener('beforeunload', handleBeforeUnload); 
+     return () => { window.removeEventListener('beforeunload', handleBeforeUnload); }; }, []);
+  
   const navigate = useNavigate();
   const userRole = getUserRole();
   const menuItems = [

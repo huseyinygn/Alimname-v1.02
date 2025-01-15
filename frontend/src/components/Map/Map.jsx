@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import "./Hakkimizda.css"
-const Hakkimizda = () => {
+import "./Map.css"
+const Map = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme'); 
@@ -11,10 +11,10 @@ const Hakkimizda = () => {
       { setIsDarkMode(false); document.documentElement.removeAttribute('data-theme'); }
   }, []);
   return (
-    <div className='Hakkimizda-container'>
-        <div className='Hakkimizda-centerflex'>sa</div>
+    <div>
+      sasa
     </div>
   )
 }
 
-export default Hakkimizda
+export default Map

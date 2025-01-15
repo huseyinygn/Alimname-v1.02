@@ -2,12 +2,11 @@
 .arabtn::selection{
     background: transparent;
 }
-
 .Search-container{
     min-height: 95vh;
     width: 110rem;
     margin: auto;
-    background-color: var(--pageBackgroundColor);
+    background-color: var(--searchpagecolor);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +28,6 @@
 .textinput {
     height: 4rem;
     background-color: var(--secondcolor);
-    border: 0.1rem solid #ddd;
     border-right: none;
     border-radius: 0.5rem;
     border-top-right-radius: 0rem;
@@ -39,6 +37,8 @@
     padding-left: 1rem;
     outline-color: var(--firstcolor);
     width: 70rem;
+    border: 0.1rem solid var(--secondcolor);
+    color: var(--textcolor);
 }
 .arabtn {
     height: 4rem;
@@ -86,7 +86,23 @@
     font-size: 1.7rem;
     font-weight: 400;
     font-style: italic;
+    color: var(--textcolor);
 }
 .Table-search{
     width: 100rem;
+}
+.Search-body{
+    width: 100%;
+    background-color: var(--secondcolor);
+}
+.Table-search .ant-table { background-color: var(--searchpagecolor); }
+.Searchlist-name{
+    font-weight: 500;
+    font-size: 1.1em;
+    color: var(--textcolor);
+}
+.Searchlist-others{
+    font-weight: 400;
+    font-size: 1.1em;
+    color: var(--textcolor);
 }

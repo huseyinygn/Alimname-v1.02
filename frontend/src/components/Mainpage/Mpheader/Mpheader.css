@@ -6,44 +6,81 @@ header input::selection{
 .header-textinput::selection{
   background-color: var(--highcolor);
 }
-@media (min-width:320px) and (max-width: 480px) {
+@media (min-width:320px) and (max-width: 479px) {
   .header-searchbar{
-    width: 20rem;
+    width: 20rem !important; 
   }
-  .header-textinput.sticky {
-    width: 15rem;
+  .header-textinput {
+    width: 10rem !important;
   }
-  header nav button{
-    display: none;
+  .header-hakkimizda{
+    display: none !important;
   }
   .top-logo{
-    display: none;
+    display: none !important;
   }
-}
-@media (min-width:481px) and (max-width: 768px) {
+  .header-map{
+    display: none !important;
+  }
+  .ThemeSwitch.sticky{
+    position: relative;
+    left: 6rem !important;
+  }
+} 
+@media (min-width:480px) and (max-width: 699px) {
+  .header-searchbar{
+    width: 20rem !important; 
+  }
+  .header-textinput {
+    width: 10rem !important;
+  }
+  .header-hakkimizda{
+    display: none !important;
+  }
+  .top-logo{
+    display: none !important;
+  }
+  .ThemeSwitch.sticky{
+    position: relative;
+    right: -5rem !important;
+  }
+} 
+  @media (min-width:700px) and (max-width: 879px) {
+  .header-searchbar{
+    width: 20rem !important; 
+  }
+  .header-textinput {
+    width: 13rem !important;
+  }
+  .ThemeSwitch.sticky{
+    position: relative;
+    right: 0rem !important;
+  }
+} 
+@media (min-width:880px) and (max-width: 1039px) {
   .header-textinput.sticky {
-    width: 17rem;
+    width: 20rem;
     margin-left: -1rem;
   }
 }
-@media (min-width:769px) and (max-width: 1024px) {
+@media (min-width:1040px) and (max-width: 1279px) {
   .header-textinput.sticky {
     width: 45rem;
   }
 }
-@media (min-width:1025px) {
+@media (min-width:1280px) {
   .header-textinput.sticky {
     width: 70rem;
   }
 }
-header.sticky {
+.header.sticky {
   background-color: var(--backgroundcolor); 
 }
-
-.header-nav.sticky, .top-logo.sticky {
-  visibility: visible;
+.header-textinput{
+  color: var(--textcolor);
+  text-decoration: none;
 }
-header {
+.header {
   position: sticky;
   top: 0;
   display: flex;
@@ -62,19 +99,23 @@ header {
   position: relative;
   left: 4.5rem;
   cursor: pointer;
-  visibility: hidden;
+  display: none;
 }
 .header-searchbar {
   position: relative;
-  left: 1rem;
   display: flex;
+  left: 5rem;
   align-items: center;
 }
-header input {
+.header-searchbar.sticky{
+  position: relative;
+  left: 7rem;
+}
+.header input {
   width: 25rem;
   height: 4rem;
   background-color: var(--secondcolor);
-  border: 0.1rem solid #ddd;
+  border: 0.1rem solid var(--secondcolor);
   border-right: none;
   border-radius: 0.5rem;
   border-top-right-radius: 0rem;
@@ -91,7 +132,7 @@ header input {
   height: 4rem;
   width: 6rem;
   background-color: var(--highcolor);
-  border: 0.1rem solid #ddd;
+  border: 0.1rem solid var(--highcolor);
   border-left: none;
   border-radius: 0.5rem;
   border-top-left-radius: 0rem;
@@ -100,12 +141,14 @@ header input {
   font-weight: 400;
   color: var(--textgray);
 }
-header nav {
+.header nav {
   position: relative;
   right: 4rem;
-  visibility: hidden;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
-header nav button {
+.header-hakkimizda{
   height: 4rem;
   width: 9rem;
   background-color: var(--highcolor);
@@ -113,4 +156,32 @@ header nav button {
   border-radius: 1rem;
   font-size: 1.3rem;
   font-weight: 400;
+  display: none;
+  color: var(--listheadercolor);
+}
+.header-nav a{
+  text-decoration: none;
+}
+.header-hakkimizda.sticky, .top-logo.sticky, .header-map.sticky {
+  display: block;
+}
+.header-map{
+  height: 4rem;
+  width: 5rem;
+  background-color: var(--highcolor);
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  display: none;
+}
+.header-map i{
+  font-size: 2rem;
+}
+.ThemeSwitch{
+  position: relative;
+  left: 4rem;
+}
+.ThemeSwitch.sticky{
+  left: 0rem;
 }

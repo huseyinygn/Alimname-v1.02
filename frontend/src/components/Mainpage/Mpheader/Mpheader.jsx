@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Mpheader.css";
 import { useState, useEffect } from "react";
+import { ConfigProvider, Switch } from 'antd';
 
 const MpHeader = () => {
   const [isSticky, setSticky] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleScroll = () => {
     const windowScrollTop = window.scrollY;
@@ -12,10 +14,25 @@ const MpHeader = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    const savedTheme = localStorage.getItem('theme'); 
+    if (savedTheme === 'dark') { 
+      setIsDarkMode(true); 
+      document.documentElement.setAttribute('data-theme', 'dark'); } 
+      else 
+      { setIsDarkMode(false); document.documentElement.removeAttribute('data-theme'); }
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const toggleTheme = () => { 
+    setIsDarkMode(!isDarkMode); 
+    if (!isDarkMode) { 
+      document.documentElement.setAttribute('data-theme', 'dark'); 
+      localStorage.setItem('theme', 'dark'); } 
+      else { 
+        document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme', 'light');
+       } };
 
   const [inputValue, setInputValue] = useState('');
 
@@ -27,7 +44,11 @@ const MpHeader = () => {
     localStorage.setItem('search-item', inputValue);
     window.location.href = "/search"
   };
+
   const handleKeyDown = (event) => { if (event.key === 'Enter') { handleButtonClick(); } };
+
+
+
    
   return (
     <header className={`header ${isSticky ? "sticky" : ""}`}>
@@ -49,11 +70,28 @@ const MpHeader = () => {
         />
         <button className="header-ara" onClick={handleButtonClick}>Ara</button>
       </div>
-      <Link to={"/hakkimizda"}>
-      <nav className={`header-nav ${isSticky ? "sticky" : ""}`}>
-        <button className="header-hakkimizda">Hakkımızda</button>
+      
+      <nav className={`header-nav`}>
+      <ConfigProvider theme={{
+        token: {
+          colorPrimary:"#ddba7ae6",
+        },
+    components: {
+      Switch: {
+        handleBg:"var(--highcolor)",
+      }
+    },
+  }}> 
+        <Switch className={`ThemeSwitch ${isSticky ? "sticky" : ""}`} checked={isDarkMode} onChange={toggleTheme}/>
+        </ConfigProvider>
+        <Link to={"/hakkimizda"}>
+        <button className={`header-hakkimizda ${isSticky ? "sticky" : ""}`}>Hakkımızda</button>
+        </Link>
+        <Link to={"/map"}>
+        <button className={`header-map ${isSticky ? "sticky" : ""}`}><i className="bi bi-globe-central-south-asia"></i></button>
+        </Link>
       </nav>
-      </Link>
+      
     </header>
   );
 };
