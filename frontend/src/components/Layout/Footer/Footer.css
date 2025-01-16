@@ -62,4 +62,5 @@ footer{
     font-size: 1.1rem;
     color: var(--highcolor);
     opacity: 70%;
+    text-align: center;
 }
