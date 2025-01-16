@@ -29,7 +29,7 @@ const AdminListPage = () => {
                 title="Kullanıcıyı silmek istediğinizden emin misiniz?"
                 okText="Yes"
                 cancelText="No"
-                onConfirm={() => deleteUser(record.username)}
+                onConfirm={() => alert("Bu interaktif şuanlık kullanıma kapatılmıştır!")}
               >
                 <Button type="primary" danger>
                   Kullanıcıyı Sil
