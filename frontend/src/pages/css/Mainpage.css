@@ -8,9 +8,9 @@
   width: 100%;
   height: 29.5rem;
   position: absolute;
-  background-image: url("../../../photos/Mp-background.webp");
+  background-image: url("../../../photos/Mp-backgroundd.webp");
   background-size: cover;
-  background-position: 0% 85%;
+  background-position: 0% 70%;
   z-index: 1;
 }
 .Mpbackground-mask-app {
