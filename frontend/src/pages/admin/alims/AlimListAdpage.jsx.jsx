@@ -86,7 +86,7 @@ const AlimList = () => {
             description="Alimi silmek istediğinizden emin misiniz?"
             okText="Yes"
             cancelText="No"
-            onConfirm={() => deleteAlims(record._id)}
+            onConfirm={() => /* deleteAlims(record._id) */ alert("Bu interaktif şuanlık kullanıma kapatılmıştır!")}
           >
             <Button type="primary" danger>
               Sil
