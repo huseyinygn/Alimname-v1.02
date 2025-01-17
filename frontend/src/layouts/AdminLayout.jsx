@@ -1,13 +1,13 @@
 import { Layout, Menu } from "antd";
 import PropTypes from "prop-types";
 import {
-    UserOutlined,
-    PlusCircleOutlined, 
-    HomeOutlined,
-    UnorderedListOutlined,
+  UserOutlined,
+  PlusCircleOutlined,
+  HomeOutlined,
+  UnorderedListOutlined,
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const { Sider, Header, Content } = Layout;
 const getUserRole = () => {
@@ -16,26 +16,46 @@ const getUserRole = () => {
 };
 
 const AdminLayout = ({ children }) => {
-   useEffect(() => { const handleBeforeUnload = () => { localStorage.removeItem('user'); }; 
-     window.addEventListener('beforeunload', handleBeforeUnload); 
-     return () => { window.removeEventListener('beforeunload', handleBeforeUnload); }; }, []);
-  
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem("user");
+    };
+
+    const handleThemeChange = () => {
+      setTheme(getTheme());
+    };
+
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const isNotDesktop = /mobile|android|iphone|ipad|tablet/i.test(userAgent);
+     setIsDesktop(!isNotDesktop); 
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("storage", handleThemeChange);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("storage", handleThemeChange);
+    };
+  }, []);
+
   const navigate = useNavigate();
   const userRole = getUserRole();
   const menuItems = [
     {
-        key: "4",
-        icon: <HomeOutlined />,
-        label: "Anasayfa",
-        onClick: () => {
-          window.location.href = "/"
-        },
+      key: "4",
+      icon: <HomeOutlined />,
+      label: "Anasayfa",
+      onClick: () => {
+        window.location.href = "/";
       },
+    },
     {
       key: "1",
       icon: <UnorderedListOutlined />,
       label: "Alim Listesi",
-      path:"/authpage",
+      path: "/authpage",
       onClick: () => {
         navigate(`/authpage`);
       },
@@ -75,6 +95,7 @@ const AdminLayout = ({ children }) => {
       }
     }
   };
+
   const getPageTitle = () => {
     for (const item of menuItems) {
       if (item.children) {
@@ -91,66 +112,107 @@ const AdminLayout = ({ children }) => {
     }
   };
 
-/* if (userRole === "Foj35J0Mky9L9QsxtTOsPlYl") { */
-  return (
-    <div className="admin-layout">
-      <Layout
+  if (/* userRole === "Foj35J0Mky9L9QsxtTOsPlYl" && */ isDesktop) {
+    return (
+      <div className="admin-layout">
+        <Layout
+          style={{
+            minHeight: "100vh",
+          }}
+        >
+          <Sider width={200}>
+            <Menu
+              mode="vertical"
+              style={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                gap: "1rem",
+                borderColor: "var(--firstcolor)",
+                backgroundColor: "var(--secondcolor)",
+              }}
+              items={menuItems}
+              defaultSelectedKeys={[getActiveKey()]}
+            />
+          </Sider>
+          <Layout>
+            <Header
+              style={{
+                backgroundColor: "var(--firstcolor)",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  color: "white",
+                }}
+              >
+                <h2>{getPageTitle()}</h2>
+              </div>
+            </Header>
+            <Content>
+              <div
+                className="site-layout-background"
+                style={{
+                  padding: "24px 50px",
+                  minHeight: 360,
+                  backgroundColor: "var(--secondcolor)",
+                }}
+              >
+                {children}
+              </div>
+            </Content>
+          </Layout>
+        </Layout>
+      </div>
+    );
+  } else {
+    return (
+      <div
         style={{
-          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "1rem",
         }}
       >
-        <Sider width={200} theme="dark">
-          <Menu
-            mode="vertical"
-            style={{
-              height: "100%",
-              display:"flex",
-               flexDirection:"column",
-               justifyContent:"center",
-               gap:"1rem",
-               borderColor:"var(--firstcolor)",
-            }}
-            items={menuItems}
-            defaultSelectedKeys={[getActiveKey()]}
-          />
-        </Sider>
-        <Layout>
-          <Header
+        {" "}
+        <div
           style={{
-            backgroundColor:"var(--firstcolor)"
+            fontWeight: 500,
+            color: "var(--linkhovercolor)",
+            backgroundColor: "var(--pageBackgroundColor)",
+            padding: "1rem",
+            borderRadius: "1rem",
           }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                color: "white",
-              }}
-            >
-              <h2>{getPageTitle()}</h2>
-            </div>
-          </Header>
-          <Content>
-            <div
-              className="site-layout-background"
-              style={{
-                padding: "24px 50px",
-                minHeight: 360,
-              }}
-            >
-              {children}
-            </div>
-          </Content>
-        </Layout>
-      </Layout>
-    </div>
-  );
-/* } else {
-  return (window.location.href = "/");
-} */
-  
+        >
+          {" "}
+          Yönetici paneline giriş yapmak için lütfen bilgisayar kullanın!{" "}
+        </div>{" "}
+        <button
+          style={{
+            height: "3rem",
+            backgroundColor: "var(--highcolor)",
+            border: "0.1rem solid var(--highcolor)",
+            borderRadius: "0.5rem",
+            fontSize: "1.4rem",
+            fontWeight: 400,
+            color: "var(--textgray)",
+          }}
+          onClick={() => (window.location.href = "/")}
+        >
+          {" "}
+          Anasayfa{" "}
+        </button>{" "}
+      </div>
+    );
+  }
 };
+
 export default AdminLayout;
 AdminLayout.propTypes = {
-    children: PropTypes.node,
-  };
+  children: PropTypes.node,
+};
