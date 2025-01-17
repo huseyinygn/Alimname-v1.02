@@ -91,7 +91,7 @@ const AdminLayout = ({ children }) => {
     }
   };
 
-if (userRole === "Foj35J0Mky9L9QsxtTOsPlYl") {
+/* if (userRole === "Foj35J0Mky9L9QsxtTOsPlYl") { */
   return (
     <div className="admin-layout">
       <Layout
@@ -145,9 +145,9 @@ if (userRole === "Foj35J0Mky9L9QsxtTOsPlYl") {
       </Layout>
     </div>
   );
-} else {
+/* } else {
   return (window.location.href = "/");
-}
+} */
   
 };
 export default AdminLayout;
