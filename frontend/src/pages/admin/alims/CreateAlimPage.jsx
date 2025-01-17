@@ -9,7 +9,8 @@ const CreateAlimPage = () => {
     const apiUrl = import.meta.env.VITE_API_BASE_URL;
   
     const onFinish = async (values) => {
-      setLoading(true);
+     alert("Bu interaktif şuanlık kullanıma kapatılmıştır!")
+      /* setLoading(true);
       try {
         const response = await fetch(`${apiUrl}/alimler`, {
           method: "POST",
@@ -29,7 +30,7 @@ const CreateAlimPage = () => {
         console.log("Alim güncelleme hatası:", error);
       } finally {
         setLoading(false);
-      }
+      } */
     };
   
     return loading?(
